@@ -10,11 +10,11 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    if(Auth::check()){
-        return redirect('/dashboard');
-    }
-    return redirect('/login');
-}); 
+if(Auth::check()){
+return redirect()->route('groupCards.index');
+}
+return redirect('/login');
+});
 
 
 Route::get('/dashboard', function () {
