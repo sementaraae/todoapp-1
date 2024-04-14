@@ -11,14 +11,11 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     if(Auth::check()){
-        return redirect('/dashboard');
+        return redirect()->route('groupCards.index');
     }
     return redirect('/login');
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     // GroupCards routes
